@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Adding custom colors
 
-## Getting Started
+In `tailwind.config.ts` you can define colors, like so:
+```js
+theme: {
+    extend: {
+      colors: {
+        'jada-purple': '#9B5DE5',
+        'jada-pink': '#FF5BB5',
+        'jada-yellow': '#FEE440',
+        'jada-blue': '#00BBF9',
+        'jada-cyan': '#00F5D4',
+      },
+      //other things
+    },
+  },
+  ```
 
-First, run the development server:
+After adding these to your config, you can use them in your Tailwind classes like this:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- For background color: `bg-jada-purple`, `bg-jada-pink`, etc.
+- For text color: `text-jada-purple`, `text-jada-pink`, etc.
+- For border color: `border-jada-purple`, `border-jada-pink`, etc.
+
+**Example:**
+```js
+const Button: React.FC<ButtonProps> = ({ text, onClick }) => {
+    return (
+        <button 
+            className="bg-jada-purple  text-white px-4 py-2 rounded-md text-lg font-semibold hover:bg-jada-pink transition-colors"
+            onClick={onClick}
+        >
+            {text}
+        </button>
+    );
+};
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Remember to restart your development server after making changes to `tailwind.config`.js to ensure that the new configuration is applied.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Color Application Notes
+Make sure to apply these colors to the `Navbar` and `Button` components (including hover). You can also at a `bg` color to the top-level `Page` component.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Hero Card
+A hero card is a component that is only shown at the top of the home page. 
 
-To learn more about Next.js, take a look at the following resources:
+- Add a `HeroCard.tsx` component in the `/components` directory.
+- In the top-level `page.tsx` file, import the `HeroCard` component as well as the `usePathname` method from `next/navigation` and assign its value to a variable such as `pathname`.
+- Add a conditional check if `pathname` is `/`, and the logcal AND operator `&&` so that if the pathname is the homepage/root directory, show if the `HeroCard` component. Pass the desired values to the `HeroCard` component.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```javascript
+//in page.tsx
+{pathname === '/' && (
+        <HeroCard
+          imageUrl="/path-to-image.jpg"
+          imageAlt="Image Description"
+          title="Hero Title"
+          subtitle="Hero Subtitle"
+          body="Hero body text"
+        />
+)}
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Turn off Navbar for the Dashboard
+The Navbar component is currently set in the main layout.tsx file, so we'll need to turn that off when showing pages from the dashboard route. We can do this by importing `usePathname` (same process as the `HeroCard` above) and then including a line like this:
+ `{!pathname.includes('/dashboard') && <Navbar />}`
 
-## Deploy on Vercel
+## Display File Tree
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+In the root directory there is a small script called `displayFileTree.js` that I use to output a text-based file tree. I find this helpful in development when I get confused. You can run this from the root directory with the command `node displayFileTree.js` if you want to try it out. This script outputs a file called `fileTree.txt` into the root directory.

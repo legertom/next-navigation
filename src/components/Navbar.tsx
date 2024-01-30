@@ -11,7 +11,7 @@ const Navbar: React.FC = () => {
     };
 
     return (
-        <nav className="flex items-center justify-between h-20 px-4 bg-teal-500">
+        <nav className="flex items-center justify-between h-20 px-4 bg-jada-cyan">
             <div className="flex items-center">
                 <Logo />
                 <ul className="flex space-x-8">
