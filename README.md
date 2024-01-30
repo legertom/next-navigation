@@ -70,3 +70,6 @@ The Navbar component is currently set in the main layout.tsx file, so we'll need
 ## Display File Tree
 
 In the root directory there is a small script called `displayFileTree.js` that I use to output a text-based file tree. I find this helpful in development when I get confused. You can run this from the root directory with the command `node displayFileTree.js` if you want to try it out. This script outputs a file called `fileTree.txt` into the root directory.
+
+## Responsive Navbar
+We need to make the Navbar component responsive. When viewed on a mobile device, we want a ion to appear that will dropdown a menu with our items.
