@@ -1,3 +1,23 @@
+## Recent updates
+See new content in the following pages:
+- services
+- about
+- contact (see new components!)
+- booking
+- resources
+
+### Update top-level page background
+Update the css utility classes in the `main` div `className="bg-jada-cyan min-h-screen p-8"` so that the background of each pages matches the navbar.
+
+### Update the links in Navbars
+- `/book` should be `/booking`
+
+### Update the Logo component
+Wrap the `img` in a `Link` component linking to the `/` so that the user can click this logo and reach the homepage.
+
+## Booking functionality
+This feature isn't working yet but the preliminary sub-routes are set up in `/booking/details` and `/booking/availablity`
+
 ## Adding custom colors
 
 In `tailwind.config.ts` you can define colors, like so:

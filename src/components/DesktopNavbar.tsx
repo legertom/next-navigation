@@ -7,7 +7,7 @@ import Button from './Button'; // Your Button component
 const menuItems = [
     { href: "/about", label: "About Jada" },
     { href: "/services", label: "Services" },
-    { href: "/book", label: "Book Jada" },
+    { href: "/booking", label: "Book Jada" },
     { href: "/resources", label: "Resources" },
     { href: "/contact", label: "Contact" }
 ];
