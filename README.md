@@ -73,3 +73,8 @@ In the root directory there is a small script called `displayFileTree.js` that I
 
 ## Responsive Navbar
 We need to make the Navbar component responsive. When viewed on a mobile device, we want a ion to appear that will dropdown a menu with our items.
+
+## `react-icons` Installation
+Make sure to install `react-icons` for the MobileNavbar with the command `npm install react-icons`.
+
+

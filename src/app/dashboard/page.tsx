@@ -30,6 +30,7 @@ export default function DashboardPage() {
             <textarea id="homePageText" rows={4} className="mt-1 block w-full border-gray-300 shadow-sm rounded-md" placeholder="Lorem ipsum"></textarea>
           </div>
         </div>
+        
       </div>
     </div>
   );
